@@ -15,6 +15,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "18.12.0"
+      
+      - name: Display github.event.release.prerelease
+        run: |
+         echo ${{ github.event.release.prerelease }}
+         echo ${{ github.event.release.prerelease && 'beta' || 'latest' }}
+        
 
       - name: Publish the package on NPM
         uses: JS-DevTools/npm-publish@v1
